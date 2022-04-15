@@ -1,10 +1,10 @@
-
-const App=()=> {
+import { Navbar } from "./components/navbar/Navbar";
+const App = () => {
   return (
     <div className="App">
-      Initial
+      <Navbar />
     </div>
   );
-}
+};
 
 export default App;

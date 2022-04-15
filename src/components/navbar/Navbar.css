@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@300;500;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    width: 100%;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFCE25;
+}
+
+.logo{
+    height: 50px;
+}
+
+.navbar__shopping_cart_info{
+    display: flex;
+    margin-right: 150px;
+    align-items: center;
+}
+
+.cart__description{
+    margin-left: 14px;
+    font-family: 'Livvic';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 125%;
+}
+
+.cart__icon__container{
+    position: relative;
+    height: 32px;
+    width: 32px;
+    align-items: baseline;
+}
+
+.cart__icon{
+    height: 80%;
+    width: 80%;
+    font-size: 18px;
+    color: #1D1D1B;
+}
+
+.cart__indicator{
+    position: absolute;
+    width: 13px;
+    height: 13px; 
+    border-radius: 50%;
+    background-color: #00AAE4;
+    right: 0px;
+    top: -3px;
+}
