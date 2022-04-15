@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@300;500;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.item__container{
+    height: 150px;
+    width: 340px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #F2F2F2;
+    margin-top: 20px;
+}
+
+.item__img__container{
+    height: 150px;
+    width: 110px;
+    overflow: hidden;
+}
+
+.item__img{
+    height: 150px;
+    transform: translateX(-15%);
+}
+
+.item__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+
+.item__info__top{
+    display: flex;
+    flex-direction: row;
+}
+
+.item__title{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.9px;
+    line-height: 125%;
+    color: #0097CC;
+}
+
+.item__info__bot{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.item__num{
+    height: 45px;
+    width: 60px;
+    border: 1px solid #0097CC;
+    background: #FFFFFF;
+    border-radius: 8px;
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.4px;
+    line-height: 125%;
+    outline: #0097CC;
+}
+
+.item__num__option{
+    display: flex;
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.4px;
+    line-height: 125%;
+    text-align: center;
+}
+
+.price{
+    display: flex;
+    align-items: baseline;
+    margin-left: 10px;
+}
+
+.price__num{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20.3px;
+    line-height: 125%;
+    color: #1D1D1B;
+    margin-right: 3px;
+}
+
+.price__text{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13.5px;
+    line-height: 125%;
+    color: #1D1D1B;
+}

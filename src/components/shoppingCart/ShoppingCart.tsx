@@ -12,13 +12,13 @@ export function ShoppingCard(props: IShoppingCardProps) {
 
     switch (items) {
         case 0:
-            cart_description = "Cart is empty";
+            cart_description = `${items} Workshop`;
             break;
         case 1:
-            cart_description = `${items} Workshop in Cart`;
+            cart_description = `${items} Workshop`;
             break;
         default:
-            cart_description = `${items} Workshops in Cart`;
+            cart_description = `${items} Workshops`;
     }
     return (
         <div className='shopping__cart'>
@@ -31,6 +31,7 @@ export function ShoppingCard(props: IShoppingCardProps) {
             </div>
             <button className='close__btn'>X</button>
             <ul>
+                <ShoppingCartItem />
                 <ShoppingCartItem />
             </ul>
         </div>
