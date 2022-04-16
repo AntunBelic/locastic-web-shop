@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@300;500;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.shopping__cart{
+    height: 100%;
+    width:380px;
+    padding: 20px;
+    position: absolute;
+    top:0;
+    right:0;
+    background-color: white;
+    box-shadow: -1px -2px 16px rgba(127, 127, 127, 0.25);
+}
+
+.shopping__cart__title{
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    align-items: flex-start;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.close__btn{
+    position: absolute;
+    top:35px;
+    right: 45px;
+    height: 24px;
+}
+
+.cart__description{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 125%;
+    color: #0D0D0D;
+}
+
+.shopping__cart__price{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 70px;
+}
+
+.shopping__cart__subtotal{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.shopping__cart__subtotal{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 125%;
+    color: #7F7F7F;
+}
+
+.shopping__cart__price__number{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 125%;
+    color: #1D1D1B;
+}
+
+.shopping__cart__price__text{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 125%;
+    color: #1D1D1B;
+}
+
+
+.shopping__cart__btn{
+    position: relative;
+    width: 300px;
+    height: 60px;
+    background: #0097CC;
+    border:none;
+    outline: none;
+    border-radius: 6px;
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18.4px;
+    line-height: 125%;
+    text-align: center;
+    color: #FFFFFF;
+    left: 50%;
+    transform: translateX(-50%);
+}

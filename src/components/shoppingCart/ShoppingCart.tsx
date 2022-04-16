@@ -1,6 +1,6 @@
-import * as React from 'react';
+import "./ShoppingCart.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ShoppingCartItem } from './shoppingCartItem/ShoppingCartItem';
 import { useContext } from 'react';
 import DataContext from '../../context/DataContext';
@@ -31,11 +31,18 @@ export function ShoppingCard(props: IShoppingCardProps) {
                 </div>
                 <h6 className="cart__description">{cart_description}</h6>
             </div>
-            <button className='close__btn'>X</button>
+            <FontAwesomeIcon icon={faXmark} className="close__btn" />
             <ul>
                 <ShoppingCartItem />
                 <ShoppingCartItem />
             </ul>
+            <div className="shopping__cart__price">
+                <span className="shopping__cart__subtotal">SUBTOTAL</span>
+                <div className="shopping__cart__subtotal">
+                    <h3 className="shopping__cart__price__number">4000,00</h3><h6 className="shopping__cart__price__text">EUR</h6>
+                </div>
+            </div>
+            <button className="shopping__cart__btn">Checkout</button>
         </div>
     );
 }

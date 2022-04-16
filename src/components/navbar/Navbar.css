@@ -28,15 +28,16 @@
     display: flex;
     margin-right: 150px;
     align-items: center;
+    display: none;
 }
 
 .cart__description{
     margin-left: 14px;
     font-family: 'Livvic';
-font-style: normal;
-font-weight: 700;
-font-size: 15px;
-line-height: 125%;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 125%;
 }
 
 .cart__icon__container{
