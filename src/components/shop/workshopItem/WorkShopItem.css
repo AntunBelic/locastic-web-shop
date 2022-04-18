@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Livvic:wght@300;500;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card__container{
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 320px;
+    border: 1px solid #F2F2F2;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card__container:hover{
+    box-shadow: 1px 2px 16px rgba(127, 127, 127, 0.35);
+}
+
+.card__img__container{
+    position: relative;
+    height: 180px;
+    width: 320px;
+}
+
+.card__img{
+    height: 180px;
+}
+
+.card__category__icon{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    bottom: -20px;
+    right: 20px;
+    color:white;
+    background-color: #1D1D1B;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.card__info__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px 40px 36px 40px;
+}
+
+.card__info__date-time{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card__info__date{
+    margin-right: 10px;
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 125%;
+    color: #1D1D1B;
+}
+
+.card__info__date_icon{
+    margin-right: 5px;
+}
+
+.card__info__title{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27px;
+    line-height: 125%;
+    color: #0097CC;
+}
+
+.card__info__price{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+.card__info__price_amount{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 29px;
+    line-height: 125%;
+    color: #1D1D1B;
+    margin-right: 5px;
+}
+
+.card__info__price_currency{
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 125%;
+    color: #1D1D1B;
+}
+
+.card__info__add_btn{
+    width: 100%;
+    height: 50px;
+    align-content: center;
+    background: #FFC80C;
+    border:none;
+    border-radius: 6px;
+    font-family: 'Livvic';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 125%;
+    color: #1D1D1B;
+}
