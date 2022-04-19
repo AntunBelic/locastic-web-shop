@@ -28,10 +28,9 @@
     display: flex;
     margin-right: 150px;
     align-items: center;
-    display: none;
 }
 
-.cart__description{
+.navbar__cart__description{
     margin-left: 14px;
     font-family: 'Livvic';
     font-style: normal;
@@ -40,24 +39,23 @@
     line-height: 125%;
 }
 
-.cart__icon__container{
+.navbar__cart__icon__container{
     position: relative;
-    height: 32px;
-    width: 32px;
+    height: 23px;
+    width: 23px;
     align-items: baseline;
 }
 
-.cart__icon{
+.navbar__cart__icon{
     height: 80%;
     width: 80%;
-    font-size: 18px;
     color: #1D1D1B;
 }
 
-.cart__indicator{
+.navbar__cart__indicator{
     position: absolute;
-    width: 13px;
-    height: 13px; 
+    width: 10px;
+    height: 10px; 
     border-radius: 50%;
     background-color: #00AAE4;
     right: 0px;

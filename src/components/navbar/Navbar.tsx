@@ -26,11 +26,11 @@ export function Navbar(props: INavbarProps) {
                 <img src={logo} alt="logo" className="logo"></img>
             </div>
             <div className="navbar__shopping_cart_info">
-                <div className="cart__icon__container">
-                    <FontAwesomeIcon icon={faCartShopping} className="cart__icon" />
-                    {items >= 1 && <span className="cart__indicator"></span>}
+                <div className="navbar__cart__icon__container">
+                    <FontAwesomeIcon icon={faCartShopping} className="navbar__cart__icon" />
+                    {items >= 1 && <span className="navbar__cart__indicator"></span>}
                 </div>
-                <h6 className="cart__description">{cart_description}</h6>
+                <h6 className="navbar__cart__description">{cart_description}</h6>
             </div>
         </nav>
     );
