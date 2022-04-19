@@ -2,12 +2,27 @@ import "./WorkShop.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaintBrush, faBolt, faCode, faTableColumns } from "@fortawesome/free-solid-svg-icons";
 import { WorkShopItem } from "../workshopItem/WorkShopItem";
+import { useContext } from 'react';
+import DataContext from "../../../context/DataContext";
 
 
 export interface IWorkShopProps {
+    category: string;
+    date: string;
+    desc: string;
+    id: number;
+    imageUrl: string;
+    price: number;
+    title: string;
+    userId: number;
 }
 
-export function WorkShop(props: IWorkShopProps) {
+export function WorkShop() {
+    const { workshopsData }: any = useContext(DataContext);
+
+    let workshops = workshopsData?.map((item: any) => {
+        return <WorkShopItem item={item} key={item.id} />
+    })
     return (
         <div className="workshop__container">
             <div className="workshop__categories">
@@ -27,15 +42,7 @@ export function WorkShop(props: IWorkShopProps) {
                     <span className="workshop__workshops__count_num">13</span>
                 </div>
                 <div className="workshop__grid__container">
-                    <WorkShopItem />
-                    <WorkShopItem />
-                    <WorkShopItem />
-                    <WorkShopItem />
-                    <WorkShopItem />
-                    <WorkShopItem />
-                    <WorkShopItem />
-                    <WorkShopItem />
-                    <WorkShopItem />
+                    {workshops}
                 </div>
                 <button className="workshop__load_btn">Load More</button>
             </div>

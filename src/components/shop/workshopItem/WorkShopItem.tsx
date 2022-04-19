@@ -3,13 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays, faClock, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 
 export interface IWorkShopItemProps {
+    category: string;
+    date: string;
+    desc: string;
+    id: number;
+    imageUrl: string;
+    price: number;
+    title: string;
+    userId: number;
 }
 
-export function WorkShopItem(props: IWorkShopItemProps) {
+export function WorkShopItem({ item }: any) {
     return (
         <div className='card__container'>
             <div className='card__img__container'>
-                <img className='card__img' src="https://pbs.twimg.com/media/EREoip3XsAEPDRp.jpg" alt='slika'></img>
+                <img className='card__img' src={item.imageUrl} alt='slika'></img>
                 <FontAwesomeIcon icon={faPaintBrush} className='card__category__icon' />
             </div>
             <div className='card__info__container'>
@@ -24,10 +32,10 @@ export function WorkShopItem(props: IWorkShopItemProps) {
                     </div>
                 </div>
                 <h5 className='card__info__title'>
-                    Interaction to Design Workshop
+                    {item.title}
                 </h5>
                 <div className='card__info__price'>
-                    <h3 className="card__info__price_amount">450,00</h3>
+                    <h3 className="card__info__price_amount">{item.price.toFixed(2)}</h3>
                     <h6 className="card__info__price_currency">EUR</h6>
                 </div>
                 <button className='card__info__add_btn'>Add to Cart</button>

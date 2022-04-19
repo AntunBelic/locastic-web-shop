@@ -119,4 +119,7 @@
 
 .workshop__grid__container{
     height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 320px);
+    gap:40px;
 }
