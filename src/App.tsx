@@ -1,5 +1,6 @@
+import { Footer } from "./components/footer/Footer";
 import { Navbar } from "./components/navbar/Navbar";
-import { WorkShopItem } from "./components/shop/workshopItem/WorkShopItem";
+import { WorkShop } from "./components/shop/workshop/WorkShop";
 import { ShoppingCard } from "./components/shoppingCart/ShoppingCart";
 import { DataProvider } from "./context/DataContext";
 const App = () => {
@@ -8,7 +9,8 @@ const App = () => {
       <DataProvider>
         <Navbar />
         <ShoppingCard />
-        <WorkShopItem />
+        <WorkShop />
+        <Footer />
       </DataProvider>
     </div>
   );
