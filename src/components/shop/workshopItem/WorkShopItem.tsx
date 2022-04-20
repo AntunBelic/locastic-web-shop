@@ -14,6 +14,18 @@ export interface IWorkShopItemProps {
 }
 
 export function WorkShopItem({ item }: any) {
+
+    const timestamp = Date.parse(item.date);
+    const date = new Date(timestamp)
+    const hours = "0" + date.getHours()
+    const minutes = "0" + date.getMinutes()
+    const day = date.getDate()
+    const month = date.getMonth()
+    const year = date.getFullYear()
+    const EventTime = `${hours.substr(-2)}:${minutes.substr(-2)}h`
+    const EventDate = `${day}.${month}.${year}.`
+
+
     return (
         <div className='card__container'>
             <div className='card__img__container'>
@@ -24,11 +36,11 @@ export function WorkShopItem({ item }: any) {
                 <div className='card__info__date-time'>
                     <div className='card__info__date'>
                         <FontAwesomeIcon icon={faCalendarDays} className="card__info__date_icon" />
-                        <span>27.6.2020.</span>
+                        <span>{EventDate}</span>
                     </div>
                     <div className='card__info__date'>
                         <FontAwesomeIcon icon={faClock} className="card__info__date_icon" />
-                        <span>09:00h</span>
+                        <span>{EventTime}</span>
                     </div>
                 </div>
                 <h5 className='card__info__title'>
