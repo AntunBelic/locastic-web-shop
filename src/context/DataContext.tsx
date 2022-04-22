@@ -1,46 +1,80 @@
-import { createContext, ReactNode, useState } from "react";
-import useFetch from "../hooks/useFetch";
+import { createContext, ReactNode, useEffect, useState } from "react";
+import axios from "axios";
 
 const DataContext = createContext({});
+
+export interface IWorkShopProps {
+    category: string;
+    date: string;
+    desc: string;
+    id: number;
+    imageUrl: string;
+    price: number;
+    title: string;
+    userId: number;
+}
 
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
 
-    const [url, setUrl] = useState("http://localhost:3500/workshops?_page=1&_limit=9&_sort=date&_order=desc")
-    const [limit, setLimit] = useState(9);
-    const [value, setValue] = useState("");
+    const [workshops, setWorkshops] = useState<IWorkShopProps[]>([]);
+    const [error, setError] = useState<string>("");
+    const [loading, setLoading] = useState<boolean>(false);
+    const [page, setPage] = useState<number>(1);
+    const [value, setValue] = useState<string>("")
 
-    const { data: workshopsData, loading, error } = useFetch(url)
+    useEffect(() => {
+        loadWorkshops(page, value);
+    }, [page, value])
 
-    const handleFilter = async (value: string, limit: number) => {
-        if (value) {
-            setLimit(9)
-            setValue(value)
-            setUrl(`http://localhost:3500/workshops?_page=1&_limit=${limit}&_sort=date&_order=desc&category=${value}`)
-        } else {
-            setLimit(9)
-            setValue(value)
-            setUrl(`http://localhost:3500/workshops?_page=1&_limit=${limit}&_sort=date&_order=desc`)
+    const loadWorkshops = async (page: number, value: string) => {
+        setLoading(true);
+        if (page === 1 && value) {
+            return await axios.get(`http://localhost:3500/workshops?_page=1&_limit=9&_sort=date&_order=desc&category=${value}`)
+                .then((response) => setWorkshops(response.data))
+                .catch((err) => setError(err.message))
+                .finally(() => {
+                    setLoading(false)
+                })
+        } else if (page === 1 && !value) {
+            return await axios.get(`http://localhost:3500/workshops?_page=1&_limit=9&_sort=date&_order=desc`)
+                .then((response) => setWorkshops(response.data))
+                .catch((err) => setError(err.message))
+                .finally(() => {
+                    setLoading(false)
+                })
+        } else if (page !== 1 && value) {
+            return await axios.get(`http://localhost:3500/workshops?_page=${page}&_limit=9&_sort=date&_order=desc&category=${value}`)
+                .then((response) => setWorkshops((prev) => [...prev, ...response.data]))
+                .catch((err) => setError(err.message))
+                .finally(() => {
+                    setLoading(false)
+                })
+        } else if (page !== 1 && !value) {
+            return await axios.get(`http://localhost:3500/workshops?_page=${page}&_limit=9&_sort=date&_order=desc`)
+                .then((response) => setWorkshops((prev) => [...prev, ...response.data]))
+                .catch((err) => setError(err.message))
+                .finally(() => {
+                    setLoading(false)
+                })
         }
-
     }
 
-    const handleLoad = (num: number, value: string) => {
-        setLimit((prev: number): number => { return prev + num })
-        if (value) {
-            setUrl(`http://localhost:3500/workshops?_page=1&_limit=${limit + num}&_sort=date&_order=desc&category=${value}`)
-        } else {
-            setUrl(`http://localhost:3500/workshops?_page=1&_limit=${limit + num}&_sort=date&_order=desc`)
-        }
 
+    const handleFilter = (value: string) => {
+        setValue(value)
+        setPage(1)
     }
 
-    console.log(workshopsData)
-    console.log(loading)
-    console.log(error)
+    const handleLoadMore = () => {
+        setPage((prev) => { return prev + 1 })
+    }
+    console.log(value)
+    console.log(page)
+    console.log(workshops)
 
     return (
-        <DataContext.Provider value={{ workshopsData, handleFilter, loading, handleLoad, limit, value }}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore }}>{children}</DataContext.Provider>
     )
 }
 
