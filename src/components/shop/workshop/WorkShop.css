@@ -42,6 +42,7 @@
     align-items: baseline;
     margin-bottom: 25px;
     margin-left: 25px;
+    cursor: pointer;
 }
 .workshop__categories_tags li h5{
     margin-left: 10px;

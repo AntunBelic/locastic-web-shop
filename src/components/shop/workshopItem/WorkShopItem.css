@@ -28,6 +28,8 @@
 
 .card__img{
     height: 180px;
+    width: 100%;
+    cursor: pointer;
 }
 
 .card__category__icon{
@@ -78,6 +80,7 @@
     font-size: 27px;
     line-height: 125%;
     color: #0097CC;
+    cursor: pointer;
 }
 
 .card__info__price{
@@ -118,4 +121,5 @@
     font-size: 18px;
     line-height: 125%;
     color: #1D1D1B;
+    cursor: pointer;
 }

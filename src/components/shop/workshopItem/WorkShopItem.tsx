@@ -1,6 +1,6 @@
 import "./WorkShopItem.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarDays, faClock, faPaintBrush } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays, faClock, faPaintBrush, faBolt, faCode, faTableColumns } from "@fortawesome/free-solid-svg-icons";
 
 export interface IWorkShopItemProps {
     category: string;
@@ -13,7 +13,7 @@ export interface IWorkShopItemProps {
     userId: number;
 }
 
-export function WorkShopItem({ item }: any) {
+export function WorkShopItem({ item }: { item: IWorkShopItemProps }) {
 
     const timestamp = Date.parse(item.date);
     const date = new Date(timestamp)
@@ -24,13 +24,28 @@ export function WorkShopItem({ item }: any) {
     const year = date.getFullYear()
     const EventTime = `${hours.substr(-2)}:${minutes.substr(-2)}h`
     const EventDate = `${day}.${month}.${year}.`
+    let icon;
+
+    switch (item.category) {
+        case "marketing":
+            icon = faBolt;
+            break;
+        case "frontend":
+            icon = faTableColumns;
+            break;
+        case "backend":
+            icon = faCode;
+            break;
+        default:
+            icon = faPaintBrush;
+    }
 
 
     return (
         <div className='card__container'>
             <div className='card__img__container'>
                 <img className='card__img' src={item.imageUrl} alt='slika'></img>
-                <FontAwesomeIcon icon={faPaintBrush} className='card__category__icon' />
+                <FontAwesomeIcon icon={icon} className='card__category__icon' />
             </div>
             <div className='card__info__container'>
                 <div className='card__info__date-time'>
