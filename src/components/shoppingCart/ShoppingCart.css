@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+.closed{
+    display: none !important;
+}
+
 .shopping__cart{
     height: 100%;
     width:380px;

@@ -2,11 +2,15 @@ import "./ShoppingCart.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ShoppingCartItem } from './shoppingCartItem/ShoppingCartItem';
+import { useContext } from 'react';
+import DataContext from "../../context/DataContext";
 
 export interface IShoppingCardProps {
 }
 
 export function ShoppingCard(props: IShoppingCardProps) {
+    let { openDrawer, cart }: any = useContext(DataContext);
+
     let items = 1;
     let cart_description = "Cart is empty";
 
@@ -21,7 +25,7 @@ export function ShoppingCard(props: IShoppingCardProps) {
             cart_description = `${items} Workshops`;
     }
     return (
-        <div className='shopping__cart'>
+        <div className={`shopping__cart ${openDrawer ? "" : "closed"}`}>
             <div className="shopping__cart__title">
                 <div className="cart__icon__container">
                     <FontAwesomeIcon icon={faCartShopping} className="cart__icon" />

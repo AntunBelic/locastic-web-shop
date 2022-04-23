@@ -23,6 +23,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [page, setPage] = useState<number>(1);
     const [value, setValue] = useState<string>("");
     const [cart, setCart] = useState<IWorkShopProps[]>([]);
+    const [openDrawer, setOpenDrawer] = useState<boolean>(false)
 
     useEffect(() => {
         loadWorkshops(page, value);
@@ -72,11 +73,15 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const addToCart = (id: number) => {
-
+        if (cart.length < 1) {
+            setOpenDrawer(true)
+        }
+        console.log(openDrawer)
     }
 
+
     return (
-        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart }}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart }}>{children}</DataContext.Provider>
     )
 }
 
