@@ -1,6 +1,9 @@
 import "./WorkShopItem.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays, faClock, faPaintBrush, faBolt, faCode, faTableColumns } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from 'react';
+import DataContext from "../../../context/DataContext";
+
 
 export interface IWorkShopItemProps {
     category: string;
@@ -14,6 +17,8 @@ export interface IWorkShopItemProps {
 }
 
 export function WorkShopItem({ item }: { item: IWorkShopItemProps }) {
+
+    let { addToCart }: any = useContext(DataContext);
 
     const timestamp = Date.parse(item.date);
     const date = new Date(timestamp)
@@ -65,7 +70,7 @@ export function WorkShopItem({ item }: { item: IWorkShopItemProps }) {
                     <h3 className="card__info__price_amount">{item.price.toFixed(2)}</h3>
                     <h6 className="card__info__price_currency">EUR</h6>
                 </div>
-                <button className='card__info__add_btn'>Add to Cart</button>
+                <button className='card__info__add_btn' onClick={() => addToCart(item.id)}>Add to Cart</button>
             </div>
         </div>
     );

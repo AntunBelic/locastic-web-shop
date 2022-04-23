@@ -21,7 +21,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [page, setPage] = useState<number>(1);
-    const [value, setValue] = useState<string>("")
+    const [value, setValue] = useState<string>("");
+    const [cart, setCart] = useState<IWorkShopProps[]>([]);
 
     useEffect(() => {
         loadWorkshops(page, value);
@@ -69,12 +70,13 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const handleLoadMore = () => {
         setPage((prev) => { return prev + 1 })
     }
-    console.log(value)
-    console.log(page)
-    console.log(workshops)
+
+    const addToCart = (id: number) => {
+
+    }
 
     return (
-        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore }}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart }}>{children}</DataContext.Provider>
     )
 }
 
