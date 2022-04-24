@@ -15,6 +15,8 @@
     width:380px;
     padding: 20px;
     overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     position: fixed;
     top:0;
     right:0;
@@ -24,6 +26,10 @@
     display: block;
     z-index: 1010;
 }
+.shopping__cart::-webkit-scrollbar {
+    display: none;
+}
+
 
 
 .shopping__cart__title{

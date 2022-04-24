@@ -43,7 +43,7 @@ export function ShoppingCartItem(props: IShoppingCartItemProps) {
                             </select>
                         </div>
                         <div className='price'>
-                            <h3 className="price__num">{props.item.total}</h3><h6 className="price__text">EUR</h6>
+                            <h3 className="price__num">{props.item.total.toFixed(2)}</h3><h6 className="price__text">EUR</h6>
                         </div>
                     </div>
                 </div>

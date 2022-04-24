@@ -61,6 +61,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    width: 170px;
 }
 
 .item__num{
