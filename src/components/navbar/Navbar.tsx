@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from 'react';
 import DataContext, { IWorkShopProps } from "../../context/DataContext";
+import { Link } from "react-router-dom";
 
 export interface INavbarProps { }
 
@@ -25,9 +26,9 @@ export function Navbar(props: INavbarProps) {
 
     return (
         <nav className="navbar__container">
-            <div>
+            <Link to="/">
                 <img src={logo} alt="logo" className="logo"></img>
-            </div>
+            </Link>
             <div className="navbar__shopping_cart_info">
                 <div className="navbar__cart__icon__container" onClick={() => handleOpenDrawer()}>
                     <FontAwesomeIcon icon={faCartShopping} className="navbar__cart__icon" />
