@@ -1,4 +1,4 @@
-import { createContext, ReactNode, SelectHTMLAttributes, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import axios from "axios";
 
 const DataContext = createContext({});

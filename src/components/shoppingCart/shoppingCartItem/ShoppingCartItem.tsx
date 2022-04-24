@@ -3,7 +3,6 @@ import "./ShoppingCartItem.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { IWorkShopProps } from "../../../context/DataContext";
-import { WorkShopItem } from "../../shop/workshopItem/WorkShopItem";
 import { useContext } from 'react';
 import DataContext from "../../../context/DataContext";
 
