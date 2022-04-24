@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ShoppingCartItem } from './shoppingCartItem/ShoppingCartItem';
 import { useContext } from 'react';
-import DataContext from "../../context/DataContext";
+import DataContext, { IWorkShopProps } from "../../context/DataContext";
 
 export interface IShoppingCardProps {
 }
 
 export function ShoppingCard(props: IShoppingCardProps) {
-    let { openDrawer, cart }: any = useContext(DataContext);
+    let { openDrawer, cart, handleCloseDrawer }: any = useContext(DataContext);
 
     let items = 1;
     let cart_description = "Cart is empty";
@@ -33,10 +33,10 @@ export function ShoppingCard(props: IShoppingCardProps) {
                 </div>
                 <h6 className="cart__description">{cart_description}</h6>
             </div>
-            <FontAwesomeIcon icon={faXmark} className="close__btn" />
+            <FontAwesomeIcon icon={faXmark} className="close__btn" onClick={() => handleCloseDrawer()} />
+            {cart.length === 0 && <h3>Cart is empty</h3>}
             <ul>
-                <ShoppingCartItem />
-                <ShoppingCartItem />
+                {cart.map((item: IWorkShopProps) => (<ShoppingCartItem item={item} key={item.id} />))}
             </ul>
             <div className="shopping__cart__price">
                 <span className="shopping__cart__subtotal">SUBTOTAL</span>

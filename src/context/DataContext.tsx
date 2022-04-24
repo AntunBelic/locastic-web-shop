@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, SelectHTMLAttributes, useEffect, useState } from "react";
 import axios from "axios";
 
 const DataContext = createContext({});
@@ -12,6 +12,8 @@ export interface IWorkShopProps {
     price: number;
     title: string;
     userId: number;
+    amount: number;
+    total: number;
 }
 
 
@@ -22,7 +24,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState<boolean>(false);
     const [page, setPage] = useState<number>(1);
     const [value, setValue] = useState<string>("");
-    const [cart, setCart] = useState<IWorkShopProps[]>([]);
+    const [cart, setCart] = useState([] as IWorkShopProps[]);
     const [openDrawer, setOpenDrawer] = useState<boolean>(false)
 
     useEffect(() => {
@@ -72,16 +74,36 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         setPage((prev) => { return prev + 1 })
     }
 
-    const addToCart = (id: number) => {
+    const addToCart = (item: IWorkShopProps) => {
         if (cart.length < 1) {
             setOpenDrawer(true)
         }
-        console.log(openDrawer)
+        setCart((prev: IWorkShopProps[]) => {
+            const isItemInCart = prev.find(workshop => workshop.id === item.id)
+            if (isItemInCart) {
+                return prev.map(workshop => workshop.id === item.id
+                    ? { ...workshop, amount: workshop.amount + 1, total: ((workshop.amount) + 1) * workshop.price }
+                    : workshop)
+            }
+            return [...prev, { ...item, amount: 1, total: item.price }]
+        })
     }
 
+    const handleCloseDrawer = () => {
+        setOpenDrawer(false)
+    }
+
+    const handleCartItemChange = (item: IWorkShopProps, event: React.ChangeEvent<HTMLSelectElement>) => {
+        event.preventDefault();
+        setCart((prev: IWorkShopProps[]) => {
+            return prev.map(workshop => workshop.id === item.id
+                ? { ...workshop, amount: parseInt(event.target.value), total: parseInt(event.target.value) * workshop.price }
+                : workshop)
+        })
+    }
 
     return (
-        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart }}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart, handleCloseDrawer, handleCartItemChange }}>{children}</DataContext.Provider>
     )
 }
 

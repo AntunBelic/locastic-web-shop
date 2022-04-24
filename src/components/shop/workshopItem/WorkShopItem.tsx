@@ -70,7 +70,7 @@ export function WorkShopItem({ item }: { item: IWorkShopItemProps }) {
                     <h3 className="card__info__price_amount">{item.price.toFixed(2)}</h3>
                     <h6 className="card__info__price_currency">EUR</h6>
                 </div>
-                <button className='card__info__add_btn' onClick={() => addToCart(item.id)}>Add to Cart</button>
+                <button className='card__info__add_btn' onClick={() => addToCart(item)}>Add to Cart</button>
             </div>
         </div>
     );
