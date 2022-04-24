@@ -45,6 +45,7 @@
     height: 23px;
     width: 23px;
     align-items: baseline;
+    cursor: pointer;
 }
 
 .navbar__cart__icon{

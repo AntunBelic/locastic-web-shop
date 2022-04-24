@@ -10,9 +10,10 @@ export interface IShoppingCardProps {
 
 export function ShoppingCard(props: IShoppingCardProps) {
     let { openDrawer, cart, handleCloseDrawer }: any = useContext(DataContext);
+    let items: number = cart.reduce((ack: number, item: IWorkShopProps) => ack + item.amount, 0);
+    let totalAmount: number = cart.reduce((ack: number, item: IWorkShopProps) => ack + item.total, 0);
+    let cart_description: string = "Cart is empty";
 
-    let items = 1;
-    let cart_description = "Cart is empty";
 
     switch (items) {
         case 0:
@@ -41,7 +42,7 @@ export function ShoppingCard(props: IShoppingCardProps) {
             <div className="shopping__cart__price">
                 <span className="shopping__cart__subtotal">SUBTOTAL</span>
                 <div className="shopping__cart__subtotal">
-                    <h3 className="shopping__cart__price__number">4000,00</h3><h6 className="shopping__cart__price__text">EUR</h6>
+                    <h3 className="shopping__cart__price__number">{totalAmount.toFixed(2)}</h3><h6 className="shopping__cart__price__text">EUR</h6>
                 </div>
             </div>
             <button className="shopping__cart__btn">Checkout</button>

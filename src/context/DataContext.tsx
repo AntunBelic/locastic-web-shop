@@ -102,8 +102,20 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         })
     }
 
+    const handleOpenDrawer = () => {
+        setOpenDrawer(true)
+    }
+
+    const handleRemoveItem = (item: IWorkShopProps) => {
+        setCart((prev) => {
+            return prev.filter((workshop) => {
+                return workshop !== item
+            })
+        })
+    }
+
     return (
-        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart, handleCloseDrawer, handleCartItemChange }}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart, handleCloseDrawer, handleCartItemChange, handleOpenDrawer, handleRemoveItem }}>{children}</DataContext.Provider>
     )
 }
 

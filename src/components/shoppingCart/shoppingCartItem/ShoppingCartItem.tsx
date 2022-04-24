@@ -14,7 +14,7 @@ export interface IShoppingCartItemProps {
 }
 
 export function ShoppingCartItem(props: IShoppingCartItemProps) {
-    let { handleCartItemChange }: any = useContext(DataContext);
+    let { handleCartItemChange, handleRemoveItem }: any = useContext(DataContext);
 
     let arrOfOptions: number[] = [];
 
@@ -33,7 +33,7 @@ export function ShoppingCartItem(props: IShoppingCartItemProps) {
                 <div className='item__info'>
                     <div className='item__info__top'>
                         <h4 className='item__title'>{props.item.title}</h4>
-                        <FontAwesomeIcon icon={faTrashCan} color="#7F7F7F" />
+                        <FontAwesomeIcon icon={faTrashCan} className="item__info__top_trash" onClick={() => handleRemoveItem(props.item)} />
                     </div>
                     <div className='item__info__bot'>
                         <div>

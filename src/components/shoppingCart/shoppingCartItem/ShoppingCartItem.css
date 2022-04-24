@@ -57,6 +57,11 @@
     width: 170px;
 }
 
+.item__info__top_trash{
+    cursor: pointer;
+    color: #7F7F7F;
+}
+
 .item__info__bot{
     display: flex;
     flex-direction: row;
