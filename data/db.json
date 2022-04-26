@@ -194,10 +194,57 @@
       "userId": 12,
       "imageUrl": "https://secure.meetupstatic.com/photos/event/2/d/8/e/highres_482651662.jpeg"
     }
-    
   ],
   "orders": [
-
+    {
+      "cart": [
+        {
+          "id": 9,
+          "title": "Testing the frontend",
+          "desc": "Among all of the shining accomplishments, the improvement in testing methodology and tools is the most encouraging. For years, front-end testing seemed to me like a glorious castle in the sky. No matter how desperately I tried to apply the existing testing methods, none were suitable to test front-end codes, and the meek test results after arduous testing procedures left me insatiable. However, recently emerging tools are providing developers with excellent solutions to the problems of the past, as if to boast the experience gained through years of trial and error.",
+          "price": 450,
+          "date": "2020-07-23T13:51:50.417-07:00",
+          "category": "frontend",
+          "userId": 9,
+          "imageUrl": "https://secure.meetupstatic.com/photos/event/2/d/8/e/highres_482651662.jpeg",
+          "amount": 1,
+          "total": 450
+        },
+        {
+          "title": "Voice - The new Frontend",
+          "desc": "Nara Kasbergen knows a lot about the subject since she is the lead engineer for voice interfaces and emerging platforms at National Public Radio (NPR). We got Nara to Tinel Meetup to cover the many things she learned along the way, including what voice UI development is and isn't. We'll go over the core strategy for building a voice app for platforms like Alexa and Google using JavaScript, as well as discuss limitations of the current tech and predictions for how it will evolve in the future. Finally, she will touch upon some essential skills that a developer in this space should possess, so that you'll feel prepared to enter the voice UI space, whether you're planning to start working with it tomorrow or a decade from now.",
+          "price": 375,
+          "category": "frontend",
+          "date": "2020-07-02T22:00:00.000Z",
+          "imageUrl": "https://secure.meetupstatic.com/photos/event/2/d/8/e/highres_482651662.jpeg",
+          "userId": 4,
+          "id": 3,
+          "amount": 2,
+          "total": 750
+        },
+        {
+          "id": 8,
+          "title": "From conversation to software",
+          "desc": "In his soft-skill talk called “From Conversation to Software”, we'll take a look at how you can help people solve their problems and grasp their opportunities. We will write user stories that help you understand their problems. We will use story mapping to create meaningful and insightful choices for your clients. Finally, we'll use release planning to predict and plan, together, where the project will end up. Join us the 26th edition of Tinel Meetup and find out how you can turn the conversation into software.",
+          "price": 350,
+          "date": "2020-06-23T13:51:50.417-07:00",
+          "category": "frontend",
+          "userId": 8,
+          "imageUrl": "https://rep.hr/media/cache/fe_homepage_profile/images/upload/87/tinel26.png",
+          "amount": 8,
+          "total": 2800
+        }
+      ],
+      "data": {
+        "firstname": "Antun",
+        "lastname": "Belić",
+        "email": "antunbelic93@gmail.com",
+        "address": "Mire Petrina 10",
+        "zip": "10000",
+        "date": "2022-04-14T22:00:00.000Z"
+      },
+      "id": 1
+    }
   ],
   "categories": [
     "marketing",

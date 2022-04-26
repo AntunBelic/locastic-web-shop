@@ -4,6 +4,7 @@ import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ShoppingCartItem } from './shoppingCartItem/ShoppingCartItem';
 import { useContext } from 'react';
 import DataContext, { IWorkShopProps } from "../../context/DataContext";
+import { Link } from "react-router-dom";
 
 export interface IShoppingCardProps {
 }
@@ -45,7 +46,7 @@ export function ShoppingCard(props: IShoppingCardProps) {
                     <h3 className="shopping__cart__price__number">{totalAmount.toFixed(2)}</h3><h6 className="shopping__cart__price__text">EUR</h6>
                 </div>
             </div>
-            <button className="shopping__cart__btn">Checkout</button>
+            <Link to="/checkout"><button className="shopping__cart__btn" >Checkout</button></Link>
         </div>
     );
 }

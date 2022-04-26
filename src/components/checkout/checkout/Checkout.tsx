@@ -1,31 +1,43 @@
-import { useForm } from "react-hook-form";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
-import DataContext, { IWorkShopProps } from "../../../context/DataContext";
+import DataContext from "../../../context/DataContext";
+import DatePicker from "react-datepicker";
 
-export interface ICheckoutProps {
+import "react-datepicker/dist/react-datepicker.css";
+
+
+type FormInputs = {
+    firstname: string;
+    lastname: string;
+    email: string;
+    address: string;
+    zip: number;
+    date: Date | null;
 }
 
 const API_URL_ORDERS = "http://localhost:3500/orders"
 
-export function Checkout(props: ICheckoutProps) {
+export function Checkout() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, control } = useForm<FormInputs>();
     const navigate = useNavigate();
-    let { cart } = useContext(DataContext);
+    let { cart }: any = useContext(DataContext);
+
+    const onSubmit: SubmitHandler<FormInputs> = (data) => {
+        const body = { cart, data };
+        fetch(API_URL_ORDERS, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+        });
+        navigate("/checkout/confirmation");
+    }
 
     return (
         <div className="checkout__container">
             <h2 className="checkout__title">Checkout</h2>
-            <form className="checkout__form" onSubmit={handleSubmit((data) => {
-                const body = { cart, data };
-                fetch(API_URL_ORDERS, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(body),
-                });
-                navigate("/checkout/confirmation");
-            })}>
+            <form className="checkout__form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="checkout__form_row">
                     <div className="checkout__form_top"><label>First Name</label><span>{errors.firstname?.message}</span></div>
                     <input
@@ -56,6 +68,18 @@ export function Checkout(props: ICheckoutProps) {
                         placeholder="Type your email address here"
                     />
                 </div>
+
+                <Controller
+                    name="date"
+                    control={control}
+                    defaultValue={null}
+                    render={({ field }) => (
+                        <DatePicker onChange={(e) => field.onChange(e)}
+                            selected={field.value}
+                            placeholderText="DD.MM.YYYY"
+                        />
+                    )}
+                />
 
                 <div className="checkout__form_row">
                     <div className="checkout__form_top"><label>Address</label><span>{errors.address?.message}</span></div>
