@@ -19,6 +19,8 @@ export interface IWorkShopProps {
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
 
+
+
     const [workshops, setWorkshops] = useState<IWorkShopProps[]>([]);
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
@@ -113,6 +115,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
             })
         })
     }
+
+
 
     return (
         <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart, handleCloseDrawer, handleCartItemChange, handleOpenDrawer, handleRemoveItem }}>{children}</DataContext.Provider>

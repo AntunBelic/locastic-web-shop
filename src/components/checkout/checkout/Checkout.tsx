@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
-import DataContext from "../../../context/DataContext";
+import DataContext, { IWorkShopProps } from "../../../context/DataContext";
 
 export interface ICheckoutProps {
 }
@@ -12,7 +12,7 @@ export function Checkout(props: ICheckoutProps) {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
-    let { cart }: any = useContext(DataContext);
+    let { cart } = useContext(DataContext);
 
     return (
         <div className="checkout__container">
