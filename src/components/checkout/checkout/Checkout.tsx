@@ -4,7 +4,6 @@ import { useContext } from 'react';
 import DataContext from "../../../context/DataContext";
 import DatePicker from "react-datepicker";
 import "./Checkout.css"
-
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -19,7 +18,7 @@ type FormInputs = {
     agreed: boolean;
 }
 
-const API_URL_ORDERS = "http://localhost:3500/sadads"
+const API_URL_ORDERS = "http://localhost:3500/orders"
 
 export function Checkout() {
 
@@ -108,7 +107,7 @@ export function Checkout() {
                                         onChange={(e) => field.onChange(e)}
                                         selected={field.value}
                                         placeholderText="DD.MM.YYYY"
-                                        dateFormat="dd/MM/yyyy"
+                                        dateFormat="dd.MM.yyyy"
                                         className="input__field"
                                     />
                                 )}
