@@ -27,11 +27,21 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [page, setPage] = useState<number>(1);
     const [value, setValue] = useState<string>("");
     const [cart, setCart] = useState([] as IWorkShopProps[]);
-    const [openDrawer, setOpenDrawer] = useState<boolean>(false)
+    const [openDrawer, setOpenDrawer] = useState<boolean>(false);
+    const [postError, setPostError] = useState<string>("")
 
     useEffect(() => {
         loadWorkshops(page, value);
     }, [page, value])
+
+    const clearState = () => {
+        setCart([]);
+        setOpenDrawer(false)
+    }
+
+    const handleError = (err: string) => {
+        setPostError(err)
+    }
 
     const loadWorkshops = async (page: number, value: string) => {
         setLoading(true);
@@ -119,7 +129,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
 
     return (
-        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart, handleCloseDrawer, handleCartItemChange, handleOpenDrawer, handleRemoveItem }}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart, handleCloseDrawer, handleCartItemChange, handleOpenDrawer, handleRemoveItem, clearState, handleError, postError }}>{children}</DataContext.Provider>
     )
 }
 

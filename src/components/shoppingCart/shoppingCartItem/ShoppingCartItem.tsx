@@ -18,7 +18,7 @@ export function ShoppingCartItem(props: IShoppingCartItemProps) {
 
     let arrOfOptions: number[] = [];
 
-    for (let i = 1; i < props.item.amount; i++) {
+    for (let i = 1; i < props.item.amount + 3; i++) {
         arrOfOptions.push(i);
     }
 
@@ -39,7 +39,6 @@ export function ShoppingCartItem(props: IShoppingCartItemProps) {
                         <div>
                             <select className="item__num" value={props.item.amount} onChange={(e) => handleCartItemChange(props.item, e)}>
                                 {options}
-                                <option className="item__num__option" value={props.item.amount} >{props.item.amount}</option>
                             </select>
                         </div>
                         <div className='price'>
