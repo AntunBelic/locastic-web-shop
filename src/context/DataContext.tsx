@@ -33,8 +33,19 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const urlCategory = `http://localhost:3500/workshops?_page=${page}&_limit=9&_sort=date&_order=desc&category=${value}`;
 
     useEffect(() => {
+        const loadWorkshops = async (page: number, value: string) => {
+            setLoading(true);
+            await axios.get(value ? urlCategory : urlAll)
+                .then((response) => { page === 1 ? setWorkshops(response.data) : setWorkshops((prev) => [...prev, ...response.data]) })
+                .catch((err) => setError(err.message))
+                .finally(() => {
+                    setLoading(false)
+                })
+
+        }
+
         loadWorkshops(page, value);
-    }, [page, value])
+    }, [page, value, urlAll, urlCategory])
 
     const clearState = () => {
         setCart([]);
@@ -44,19 +55,6 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const handleError = (err: string) => {
         setPostError(err)
     }
-
-    const loadWorkshops = async (page: number, value: string) => {
-        setLoading(true);
-
-        await axios.get(value ? urlCategory : urlAll)
-            .then((response) => { page === 1 ? setWorkshops(response.data) : setWorkshops((prev) => [...prev, ...response.data]) })
-            .catch((err) => setError(err.message))
-            .finally(() => {
-                setLoading(false)
-            })
-
-    }
-
 
     const handleFilter = (value: string) => {
         setValue(value)
@@ -106,8 +104,6 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
             })
         })
     }
-
-
 
     return (
         <DataContext.Provider value={{ workshops, loading, error, handleFilter, handleLoadMore, addToCart, openDrawer, cart, handleCloseDrawer, handleCartItemChange, handleOpenDrawer, handleRemoveItem, clearState, handleError, postError }}>{children}</DataContext.Provider>

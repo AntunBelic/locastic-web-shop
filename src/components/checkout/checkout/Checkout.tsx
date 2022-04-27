@@ -68,7 +68,13 @@ export function Checkout() {
                     <div className="checkout__form_top"><label className="checkout__label">First Name</label><h6 className="checkout__error">{errors.firstname?.message}</h6></div>
                     <input
                         className="input__field"
-                        {...register("firstname", { required: "First name is required." })}
+                        {...register("firstname", {
+                            required: "First name is required.",
+                            pattern: {
+                                value: /^[\u00C0-\u017E a-zA-Z\']+$/,
+                                message: "Only letters are allowed"
+                            }
+                        })}
                         placeholder="Type your first name here"
                     />
                 </div>
@@ -76,7 +82,13 @@ export function Checkout() {
                     <div className="checkout__form_top"><label className="checkout__label">Last Name</label><h6 className="checkout__error">{errors.lastname?.message}</h6></div>
                     <input
                         className="input__field"
-                        {...register("lastname", { required: "Last name is required." })}
+                        {...register("lastname", {
+                            required: "Last name is required.",
+                            pattern: {
+                                value: /^[\u00C0-\u017E a-zA-Z\']+$/,
+                                message: "Only letters are allowed"
+                            }
+                        })}
                         placeholder="Type your last name here"
                     />
                 </div>
