@@ -48,7 +48,6 @@ export function Checkout() {
             .then(() => {
                 clearState();
                 navigate("/checkout/confirmation");
-                console.log("then")
             })
             .catch((err) => {
                 handleError(`${err.statusText}, try again.`)
