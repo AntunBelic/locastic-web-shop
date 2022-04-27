@@ -62,7 +62,6 @@ export function Checkout() {
                 <h2 className="checkout__title">Checkout</h2>
                 {postError && <h6 className="checkout__error">{postError}</h6>}
             </div>
-
             <form className="checkout__form" onSubmit={handleSubmit(onSubmit)}>
                 <div className="checkout__form_row">
                     <div className="checkout__form_top"><label className="checkout__label">First Name</label><h6 className="checkout__error">{errors.firstname?.message}</h6></div>
@@ -71,7 +70,7 @@ export function Checkout() {
                         {...register("firstname", {
                             required: "First name is required.",
                             pattern: {
-                                value: /^[\u00C0-\u017E a-zA-Z\']+$/,
+                                value: /^[\u00C0-\u017E a-zA-Z']+$/,
                                 message: "Only letters are allowed"
                             }
                         })}
@@ -85,7 +84,7 @@ export function Checkout() {
                         {...register("lastname", {
                             required: "Last name is required.",
                             pattern: {
-                                value: /^[\u00C0-\u017E a-zA-Z\']+$/,
+                                value: /^[\u00C0-\u017E a-zA-Z']+$/,
                                 message: "Only letters are allowed"
                             }
                         })}
