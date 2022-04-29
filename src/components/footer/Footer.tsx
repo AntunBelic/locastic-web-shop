@@ -10,7 +10,7 @@ export function Footer(props: IFooterProps) {
 
     return (
         <footer className="footer__container">
-            <h6 className="footer">&copy; TINEL Meetup 2020.</h6>
+            <h6 className="footer">&copy; TINEL Meetup 2022.</h6>
         </footer>
     );
 }
