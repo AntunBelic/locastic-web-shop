@@ -18,7 +18,7 @@ type FormInputs = {
     agreed: boolean;
 }
 
-const API_URL_ORDERS = "http://localhost:3500/orders"
+const API_URL_ORDERS = "https://locastictest.herokuapp.com/orders"
 
 export function Checkout() {
 

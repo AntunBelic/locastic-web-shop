@@ -29,8 +29,8 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [openDrawer, setOpenDrawer] = useState<boolean>(false);
     const [postError, setPostError] = useState<string>("");
 
-    const urlAll = `http://localhost:3500/workshops?_page=${page}&_limit=9&_sort=date&_order=desc`;
-    const urlCategory = `http://localhost:3500/workshops?_page=${page}&_limit=9&_sort=date&_order=desc&category=${value}`;
+    const urlAll = `https://locastictest.herokuapp.com/workshops?_page=${page}&_limit=9&_sort=date&_order=desc`;
+    const urlCategory = `https://locastictest.herokuapp.com/workshops?_page=${page}&_limit=9&_sort=date&_order=desc&category=${value}`;
 
     useEffect(() => {
         const loadWorkshops = async (page: number, value: string) => {
