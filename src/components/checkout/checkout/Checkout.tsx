@@ -47,7 +47,7 @@ export function Checkout() {
             .then(manageErrors)
             .then(() => {
                 clearState();
-                navigate("/checkout/confirmation");
+                navigate("/locastic-web-shop/checkout/confirmation");
             })
             .catch((err) => {
                 handleError(`${err.statusText}, try again.`)

@@ -1,10 +1,8 @@
-import React from "react";
+
 import "./Footer.css"
 
-export interface IFooterProps {
-}
 
-export function Footer(props: IFooterProps) {
+export function Footer() {
 
 
 

@@ -16,9 +16,9 @@ const App = () => {
           <Navbar />
           <ShoppingCard />
           <Routes>
-            <Route path="/" element={<WorkShop />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/checkout/confirmation" element={<Confirmation />} />
+            <Route path="/locastic-web-shop" element={<WorkShop />} />
+            <Route path="/locastic-web-shop/checkout" element={<Checkout />} />
+            <Route path="/locastic-web-shop/checkout/confirmation" element={<Confirmation />} />
           </Routes>
           <Footer />
         </DataProvider>

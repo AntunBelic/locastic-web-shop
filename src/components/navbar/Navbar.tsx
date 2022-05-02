@@ -26,7 +26,7 @@ export function Navbar(props: INavbarProps) {
 
     return (
         <nav className="navbar__container">
-            <Link to="/">
+            <Link to="/locastic-web-shop">
                 <img src={logo} alt="logo" className="logo"></img>
             </Link>
             <div className="navbar__shopping_cart_info">

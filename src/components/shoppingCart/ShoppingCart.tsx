@@ -46,7 +46,7 @@ export function ShoppingCard(props: IShoppingCardProps) {
                     <h3 className="shopping__cart__price__number">{totalAmount.toFixed(2)}</h3><h6 className="shopping__cart__price__text">EUR</h6>
                 </div>
             </div>
-            <Link to="/checkout"><button className="shopping__cart__btn" onClick={() => handleCloseDrawer()}>Checkout</button></Link>
+            <Link to="/locastic-web-shop/checkout"><button className="shopping__cart__btn" onClick={() => handleCloseDrawer()}>Checkout</button></Link>
         </div>
     );
 }
