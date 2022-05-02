@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/locastic-web-shop/static/css/main.e961775b.css",
+    "main.js": "/locastic-web-shop/static/js/main.d44a0d76.js",
+    "static/media/tinel_logo.svg": "/locastic-web-shop/static/media/tinel_logo.b10c6707f8d1bbcabe03dea9a3d5db3c.svg",
+    "index.html": "/locastic-web-shop/index.html",
+    "main.e961775b.css.map": "/locastic-web-shop/static/css/main.e961775b.css.map",
+    "main.d44a0d76.js.map": "/locastic-web-shop/static/js/main.d44a0d76.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e961775b.css",
+    "static/js/main.d44a0d76.js"
+  ]
+}
